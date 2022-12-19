@@ -6,7 +6,13 @@
     </head>
     <body>
         <form method="post">
-            <h1>Welcome Lessee</h1>
+            {% csrf_token %}
+            <div class="lesseehome">
+                <h1>Welcome Lessee</h1>
+                <button>
+                    <a href="/container_leasing_app/home">Logout</a>
+                </button>
+            </div>
         </form>
 
     </body>
