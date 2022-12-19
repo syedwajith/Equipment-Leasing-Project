@@ -24,6 +24,9 @@ def adminhome(request):
 def home_admin(request):
     return redirect('/container_leasing_app/adminlogin')
 
+def adminlogout(request):
+    return redirect('/container_leasing_app/containerhome')
+
 # Lessor
 def lessorlogin(request):
     if request.method == "POST":
