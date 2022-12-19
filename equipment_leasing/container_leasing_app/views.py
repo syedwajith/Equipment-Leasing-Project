@@ -1,4 +1,5 @@
 from django.shortcuts import render,HttpResponse,redirect
+from container_leasing_app.models import LessorDetails,LesseeDetails
 
 # Create your views here.
 
@@ -25,26 +26,110 @@ def home_admin(request):
 
 # Lessor
 def lessorlogin(request):
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        try:
+            LessorDetails.objects.get(Username=username, Password=password)
+            return redirect('/container_leasing_app/lessor_home')
+        except:
+            return HttpResponse('Invalid Username and Password')
     return render(request, 'container_leasing_app/lessorlogin.html')
 
 def home_lessor(request):
     return redirect('/container_leasing_app/lessorlogin')
 
 def lessor_register(request):
+    if request.method == "POST":
+        firstname = request.POST.get('firstname')
+        lastname = request.POST.get('lastname')
+        email = request.POST.get('email')
+        phoneno = request.POST.get('phoneno')
+        country = request.POST.get('country')
+        state = request.POST.get('state')
+        city = request.POST.get('city')
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        confirmpassword = request.POST.get('confirmpassword')
+        lessor = LessorDetails()
+        if len(firstname) == 0 or len(lastname) == 0 or len(email) == 0 or len(phoneno) == 0 or len(country) == 0 or len(state) == 0 or len(city) == 0 or len(username) == 0 or len(password) == 0 or len(confirmpassword) == 0:
+            return HttpResponse('Please fill the all fields')
+        elif password != confirmpassword:
+            return HttpResponse('password is mismatch')
+        else:
+            lessor.First_Name = firstname
+            lessor.Last_Name = lastname
+            lessor.Email = email
+            lessor.Phone_No = phoneno
+            lessor.Country = country
+            lessor.State = state
+            lessor.City = city
+            lessor.Username = username
+            lessor.Password = password
+            lessor.save()
     return render(request, 'container_leasing_app/lessorregister.html')
 
 def lessor_log_reg(request):
     return redirect('/container_leasing_app/lessor_register')
 
+def lessor_home(request):
+    return render(request, 'container_leasing_app/lessorhome.html')
+
+def lessorlogout(request):
+    return redirect('/container_leasing_app/containerhome')
+
 # Lessee
 def lesseelogin(request):
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        try:
+            LesseeDetails.objects.get(Username=username, Password=password)
+            return redirect('/container_leasing_app/lessee_home')
+        except:
+            return HttpResponse('Invalid Username and Password')
     return render(request, 'container_leasing_app/lesseelogin.html')
     
 def home_lessee(request):
     return redirect('/container_leasing_app/lesseelogin')
 
 def lessee_register(request):
+    if request.method == "POST":
+        firstname = request.POST.get('firstname')
+        lastname = request.POST.get('lastname')
+        email = request.POST.get('email')
+        phoneno = request.POST.get('phoneno')
+        company = request.POST.get('company')
+        country = request.POST.get('country')
+        state = request.POST.get('state')
+        city = request.POST.get('city')
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        confirmpassword = request.POST.get('confirmpassword')
+        lessee = LesseeDetails()
+        if len(firstname) == 0 or len(lastname) == 0 or len(email) == 0 or len(phoneno) == 0 or len(company) == 0 or len(country) == 0 or len(state) == 0 or len(city) == 0 or len(username) == 0 or len(password) == 0 or len(confirmpassword) == 0:
+            return HttpResponse('Please fill the all fields')
+        elif password != confirmpassword:
+            return HttpResponse('password is mismatch')
+        else:
+            lessee.First_Name = firstname
+            lessee.Last_Name = lastname
+            lessee.Email = email
+            lessee.Phone_No = phoneno
+            lessee.Company = company
+            lessee.Country = country
+            lessee.State = state
+            lessee.City = city
+            lessee.Username = username
+            lessee.Password = password
+            lessee.save()
     return render(request, 'container_leasing_app/lesseeregister.html')
 
 def lessee_log_reg(request):
     return redirect('/container_leasing_app/lessee_register')
+
+def lessee_home(request):
+    return render(request, 'container_leasing_app/lesseehome.html')
+    
+def lesseelogout(request):
+    return redirect('/container_leasing_app/containerhome')
