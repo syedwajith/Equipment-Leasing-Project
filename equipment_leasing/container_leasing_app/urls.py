@@ -32,4 +32,5 @@ urlpatterns = [
     path('lesseelogreg/', views.lessee_log_reg),
     path('lessor_home/', views.lessor_home),
     path('lessee_home/', views.lessee_home),
+    path('adminlogout/', views.adminlogout)
 ]
