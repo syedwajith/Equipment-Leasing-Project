@@ -1,5 +1,5 @@
 from django.shortcuts import render,HttpResponse,redirect
-from container_leasing_app.models import LessorDetails,LesseeDetails
+from container_leasing_app.models import LessorDetails,LesseeDetails,ContainerDetails,LeasingDetails
 
 # Create your views here.
 
@@ -27,6 +27,18 @@ def home_admin(request):
 def adminlogout(request):
     return redirect('/container_leasing_app/containerhome')
 
+def admin_lessorpending(request):
+    return render(request, 'container_leasing_app/lessorpending.html')
+
+def admin_lessorapprove(request):
+    return render(request, 'container_leasing_app/lessorapprove.html')
+
+def admin_lesseepending(request):
+    return render(request, 'container_leasing_app/lesseepending.html')
+
+def admin_lesseeapprove(request):
+    return render(request, 'container_leasing_app/lesseeapprove.html')
+
 # Lessor
 def lessorlogin(request):
     if request.method == "POST":
@@ -34,7 +46,8 @@ def lessorlogin(request):
         password = request.POST.get('password')
         try:
             LessorDetails.objects.get(Username=username, Password=password)
-            return redirect('/container_leasing_app/lessor_home')
+            userdata = LessorDetails.objects.filter(Password=password) and LessorDetails.objects.filter(Username=username)
+            return redirect('/container_leasing_app/lessor_home', {'lessordata':userdata})
         except:
             return HttpResponse('Invalid Username and Password')
     return render(request, 'container_leasing_app/lessorlogin.html')
@@ -70,6 +83,7 @@ def lessor_register(request):
             lessor.Username = username
             lessor.Password = password
             lessor.save()
+            return redirect('/container_leasing_app/lessorlog')
     return render(request, 'container_leasing_app/lessorregister.html')
 
 def lessor_log_reg(request):
@@ -81,6 +95,18 @@ def lessor_home(request):
 def lessorlogout(request):
     return redirect('/container_leasing_app/containerhome')
 
+def lessor_editprofile(request):
+    return render(request, 'container_leasing_app/lessor_editprofile.html')
+
+def lessor_addcontainer(request):
+    return render(request, 'container_leasing_app/lessor_addcontainer.html')
+
+def lessor_updatecontainer(request):
+    return render(request, 'container_leasing_app/lessor_updatecontainer.html')
+
+def lessor_view_leased_container(request):
+    return render(request, 'container_leasing_app/lessor_viewleasedcontainer.html')
+
 # Lessee
 def lesseelogin(request):
     if request.method == "POST":
@@ -88,7 +114,8 @@ def lesseelogin(request):
         password = request.POST.get('password')
         try:
             LesseeDetails.objects.get(Username=username, Password=password)
-            return redirect('/container_leasing_app/lessee_home')
+            userdata = LesseeDetails.objects.filter(Password=password) and LesseeDetails.objects.filter(Username=username)
+            return redirect('/container_leasing_app/lessee_home', {'lesseedata':userdata})
         except:
             return HttpResponse('Invalid Username and Password')
     return render(request, 'container_leasing_app/lesseelogin.html')
@@ -126,6 +153,7 @@ def lessee_register(request):
             lessee.Username = username
             lessee.Password = password
             lessee.save()
+            return redirect('/container_leasing_app/lesseelog')
     return render(request, 'container_leasing_app/lesseeregister.html')
 
 def lessee_log_reg(request):
@@ -136,3 +164,13 @@ def lessee_home(request):
     
 def lesseelogout(request):
     return redirect('/container_leasing_app/containerhome')
+
+def lessee_editprofile(request):
+    return render(request, 'container_leasing_app/lessee_editprofile.html')
+
+def lessee_view_container_list(request):
+    return render(request, 'container_leasing_app/lessee_viewcontainerlist.html')
+
+def lessee_view_leasing_list(request):
+    return render(request, 'container_leasing_app/lessee_viewleasinglist.html')
+
