@@ -32,5 +32,16 @@ urlpatterns = [
     path('lesseelogreg/', views.lessee_log_reg),
     path('lessor_home/', views.lessor_home),
     path('lessee_home/', views.lessee_home),
-    path('adminlogout/', views.adminlogout)
+    path('adminlogout/', views.adminlogout),
+    path('lessorpending/', views.admin_lessorpending),
+    path('lesseepending/', views.admin_lesseepending),
+    path('lessorapprove/', views.admin_lessorapprove),
+    path('lesseeapprove/', views.admin_lesseeapprove),
+    path('lessor_editprofile/', views.lessor_editprofile),
+    path('lessor_addcontainer/', views.lessor_addcontainer),
+    path('lessor_updatecontainer/', views.lessor_updatecontainer),
+    path('lessor_view_leased_container/', views.lessor_view_leased_container),
+    path('lessee_editprofile/', views.lessee_editprofile),
+    path('lessee_view_container_list/', views.lessee_view_container_list),
+    path('lessee_view_leasing_list/', views.lessee_view_leasing_list),
 ]
