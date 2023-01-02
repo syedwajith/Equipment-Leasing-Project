@@ -46,8 +46,7 @@ def lessorlogin(request):
         password = request.POST.get('password')
         try:
             LessorDetails.objects.get(Username=username, Password=password)
-            userdata = LessorDetails.objects.filter(Password=password) and LessorDetails.objects.filter(Username=username)
-            return redirect('/container_leasing_app/lessor_home', {'lessordata':userdata})
+            return redirect('/container_leasing_app/lessor_home')
         except:
             return HttpResponse('Invalid Username and Password')
     return render(request, 'container_leasing_app/lessorlogin.html')
@@ -114,8 +113,7 @@ def lesseelogin(request):
         password = request.POST.get('password')
         try:
             LesseeDetails.objects.get(Username=username, Password=password)
-            userdata = LesseeDetails.objects.filter(Password=password) and LesseeDetails.objects.filter(Username=username)
-            return redirect('/container_leasing_app/lessee_home', {'lesseedata':userdata})
+            return redirect('/container_leasing_app/lessee_home')
         except:
             return HttpResponse('Invalid Username and Password')
     return render(request, 'container_leasing_app/lesseelogin.html')
