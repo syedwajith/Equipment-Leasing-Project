@@ -2,18 +2,27 @@
     {%load static%}
     <head>
         <title>Container Leasing</title>
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/adminhome.css' %}">
     </head>
     <body>
-        <form method="post">
-            {% csrf_token %}
-            <div class="lesseehome">
-                <h1>Welcome Lessee</h1>
-                <button>
-                    <a href="/container_leasing_app/home">Logout</a>
-                </button>
-            </div>
-        </form>
-
+        
+            <nav>
+                <label class="adminhome">Welcome Lessee</label>
+                <ul>
+                    <li>
+                        <a href="/container_leasing_app/lessee_editprofile">edit profile</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/lessee_view_container_list">view container list</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/lessee_view_leasing_list">view leasing list</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/home">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+      
     </body>
 </html>
