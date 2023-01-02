@@ -1,0 +1,60 @@
+<html>
+    {%load static%}
+    <head>
+        <title>Container Leasing</title>
+        <link rel="stylesheet" href="{% static 'css/adminhome.css' %}">
+    </head>
+    <body>
+            <nav>
+                <label class="adminhome">Welcome Lessor</label>
+                <ul>
+                    <li>
+                        <a href="/container_leasing_app/lessor_editprofile">edit profile</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/lessor_addcontainer">add container</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/lessor_updatecontainer">update container</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/lessor_view_leased_container"> view leased container</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/home">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+            <h1>Leased Container List</h1>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Lessee Name</th>
+                        <th>Lessor Name</th>
+                        <th>Container Type</th>
+                        <th>Container Size</th>
+                        <th>Quantity</th>
+                        <th>Total lease Month</th>
+                        <th>Lease Amount</th>
+                        <th>Lease Date</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+
+
+            </table>
+    </body>
+</html>

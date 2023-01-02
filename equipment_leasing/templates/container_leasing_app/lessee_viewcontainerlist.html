@@ -1,0 +1,135 @@
+<html>
+    {%load static%}
+    <head>
+        <title>Container Leasing</title>
+        <link rel="stylesheet" href="{% static 'css/adminhome.css' %}">
+    </head>
+    <body>
+            <nav>
+                <label class="adminhome">Welcome Lessee</label>
+                <ul>
+                    <li>
+                        <a href="/container_leasing_app/lessee_editprofile">edit profile</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/lessee_view_container_list">view container list</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/lessee_view_leasing_list">view leasing list</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/home">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+            <h1>Container List</h1>
+            <table>
+                <tr>
+                    <th>Lessor id</th>
+                    <th>Lessor Name</th>
+                    <th>Container Type</th>
+                    <th>Container Size</th>
+                    <th>Picture</th>
+                    <th>Quantity</th>
+                    <th>Container Amount</th>
+                    <th>Action</th>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <a href="">Lease Conatainer</a>
+                    </td>
+                </tr>
+
+            </table>
+
+            <form method="post">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td>
+                            Lessee id
+                        </td>
+                        <td>
+                            <input type="text" name="lesseeid" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Lessee Name
+                        </td>
+                        <td>
+                            <input type="text" name="lesseename" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Lessor id
+                        </td>
+                        <td>
+                            <input type="text" name="lessorid" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Lessor Name
+                        </td>
+                        <td>
+                            <input type="text" name="lessorname" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Container Type
+                        </td>
+                        <td>
+                            <input type="text" name="containertype" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Container Size
+                        </td>
+                        <td>
+                            <input type="text" name="containersize" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Quantity
+                        </td>
+                        <td>
+                            <input type="text" name="quantity">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Leasing Months
+                        </td>
+                        <td>
+                            <input type="text" name="leasingmonths">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Select Today Date
+                        </td>
+                        <td>
+                            <input type="datetime" name="date" placeholder="yyyy-mm-dd">
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <br>
+                <input type="submit" value="Lease Container">
+            </form>
+            
+    </body>
+</html>

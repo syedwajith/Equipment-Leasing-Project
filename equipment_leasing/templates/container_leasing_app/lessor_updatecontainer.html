@@ -1,0 +1,94 @@
+<html>
+    {%load static%}
+    <head>
+        <title>Container Leasing</title>
+        <link rel="stylesheet" href="{% static 'css/adminhome.css' %}">
+    </head>
+    <body>
+        <form method="post">
+            {% csrf_token %}
+            <nav>
+                <label class="adminhome">Welcome Lessor</label>
+                <ul>
+                    <li>
+                        <a href="/container_leasing_app/lessor_editprofile">edit profile</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/lessor_addcontainer">add container</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/lessor_updatecontainer">update container</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/lessor_view_leased_container"> view leased container</a>
+                    </li>
+                    <li>
+                        <a href="/container_leasing_app/home">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+            <h1>Update Container Details</h1>
+            <table>
+                <tr>
+                    <td>
+                        Owner id 
+                    </td>
+                    <td>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Owner Name
+                    </td>
+                    <td>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Container Type
+                    </td>
+                    <td>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Container Size
+                    </td>
+                    <td>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Container Picture
+                    </td>
+                    <td>
+                        <input type="file" name="containerpicture" value="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Quantity
+                    </td>
+                    <td>
+                        <input type="text" name="quantity" value="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Container Amount
+                    </td>
+                    <td>
+                        <input type="text" name="containeramount" value="">
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <br>
+            <input type="submit" value="Save Changes">
+        </form>
+    </body>
+</html>
