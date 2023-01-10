@@ -5,11 +5,12 @@
         <link rel="stylesheet" href="{% static 'css/adminhome.css' %}">
     </head>
     <body>
-        <form method="post">
-            {% csrf_token %}
             <nav>
                 <label class="adminhome">Welcome Lessor</label>
                 <ul>
+                    <li>
+                        <a href="/container_leasing_app/lessor_home">home</a>
+                    </li>
                     <li>
                         <a href="/container_leasing_app/lessor_editprofile">edit profile</a>
                     </li>
@@ -28,6 +29,8 @@
                 </ul>
             </nav>
             <h1>Add Container Details</h1>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
             <table>
                 <tr>
                     <td>
@@ -50,8 +53,8 @@
                         Container Type
                     </td>
                     <td>
-                        <select name="continertype">
-                            <option value="Dry storage sontainer">Dry storage sontainer</option>
+                        <select name="containertype">
+                            <option value="Dry storage sontainer">Dry storage container</option>
                             <option value="Flat rack container">Flat rack container</option>
                             <option value="Open top container">Open top container</option>
                             <option value="Tunnel container">Tunnel container</option>
