@@ -9,6 +9,9 @@
                 <label class="adminhome">Welcome Lessee</label>
                 <ul>
                     <li>
+                        <a href="/container_leasing_app/lessee_home">home</a>
+                    </li>
+                    <li>
                         <a href="/container_leasing_app/lessee_editprofile">edit profile</a>
                     </li>
                     <li>
@@ -22,6 +25,38 @@
                     </li>
                 </ul>
             </nav>
+            <h1>Lessee Details</h1>
+            <table border="1">
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Company</th>
+                    <th>Country</th>
+                    <th>State</th>
+                    <th>City</th>
+                    <th>Action</th>
+                </tr>
+                {% for lesseedetail in lesseedetail %}
+                <tr>
+                    <td>{{lesseedetail.id}}</td>
+                    <td>{{lesseedetail.First_Name}}</td>
+                    <td>{{lesseedetail.Last_Name}}</td>
+                    <td>{{lesseedetail.Email}}</td>
+                    <td>{{lesseedetail.Phone_No}}</td>
+                    <td>{{lesseedetail.Company}}</td>
+                    <td>{{lesseedetail.Country}}</td>
+                    <td>{{lesseedetail.State}}</td>
+                    <td>{{lesseedetail.City}}</td>
+                    <td>
+                        <a href="/container_leasing_app/lessee_editprofile_edit/{{lesseedetail.id}}">edit</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            {% if data %}
             <h1>Edit Details</h1>
             <form method="post">
             {% csrf_token %}
@@ -31,7 +66,7 @@
                         First Name  
                     </td>
                     <td>
-                        
+                        {{data.First_Name}}
                     </td>
                 </tr>
                 <tr>
@@ -39,7 +74,7 @@
                         Last Name  
                     </td>
                     <td>
-                        
+                        {{data.Last_Name}}
                     </td>
                 </tr>
                 <tr>
@@ -47,7 +82,7 @@
                         Email
                     </td>
                     <td>
-                        <input type="text" name="country" value="">
+                        {{data.Email}}
                     </td>
                 </tr>
                 <tr>
@@ -55,7 +90,7 @@
                         Phone Number
                     </td>
                     <td>
-                        <input type="text" name="country" value="">
+                        <input type="text" name="phoneno" value="{{data.Phone_No}}">
                     </td>
                 </tr>
                 <tr>
@@ -63,7 +98,7 @@
                         Company 
                     </td>
                     <td>
-                        
+                        {{data.Company}}
                     </td>
                 </tr>
                 <tr>
@@ -71,7 +106,7 @@
                         Country
                     </td>
                     <td>
-                        <input type="text" name="country" value="">
+                        <input type="text" name="country" value="{{data.Country}}">
                     </td>
                 </tr>
                 <tr>
@@ -79,7 +114,7 @@
                         State
                     </td>
                     <td>
-                        <input type="text" name="state" value="">
+                        <input type="text" name="state" value="{{data.State}}">
                     </td>
                 </tr>
                 <tr>
@@ -87,7 +122,7 @@
                         City
                     </td>
                     <td>
-                        <input type="text" name="city" value="">
+                        <input type="text" name="city" value="{{data.City}}">
                     </td>
                 </tr>
                 <tr>
@@ -95,7 +130,7 @@
                         Username
                     </td>
                     <td>
-                        
+                        {{data.Username}}
                     </td>
                 </tr>
                 <tr>
@@ -103,13 +138,14 @@
                         Password
                     </td>
                     <td>
-                        <input type="password" name="password" value="">
+                        <input type="password" name="password" value="{{data.Password}}">
                     </td>
                 </tr>
             </table>
             <br>
             <br>
-            <input type="submit" name="save" value="Save Changes">
+            <input type="submit" value="Save Changes">
             </form>
+            {% endif %}
     </body>
 </html>
