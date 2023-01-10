@@ -9,6 +9,9 @@
                 <label class="adminhome">Welcome Admin</label>
                 <ul>
                     <li>
+                        <a href="/container_leasing_app/adminhome">home</a>
+                    </li>
+                    <li>
                         <a href="/container_leasing_app/lessorpending">Lessor Pending</a>
                     </li>
                     <li>
@@ -26,7 +29,7 @@
                 </ul>
             </nav>
             <h1>Lessee Pending List</h1>
-            <table>
+            <table border="1">
                 <tr>
                     <th>Lessee id</th>
                     <th>Lessor id</th>
@@ -41,24 +44,24 @@
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
-
+                {% for data in lesseependingdata%}
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{data.Lessee_id}}</td>
+                    <td>{{data.Owner_id}}</td>
+                    <td>{{data.Lessee_Name}}</td>
+                    <td>{{data.Owner_Name}}</td>
+                    <td>{{data.Lease_Container_Type}}</td>
+                    <td>{{data.Lease_Container_Size}}</td>
+                    <td>{{data.Quantity}}</td>
+                    <td>{{data.Lease_Date}}</td>
+                    <td>{{data.Leasing_Months}}</td>
+                    <td>{{data.Lease_Amount}}</td>
+                    <td>{{data.Status}}</td>
                     <td>
-                        <a href="">Approve</a>
+                        <a href="/container_leasing_app/admin_lesseepending_approve/{{data.id}}">Approve</a>
                     </td>
                 </tr>
-
+                {% endfor %}
             </table>
     </body>
 </html>
