@@ -9,6 +9,9 @@
                 <label class="adminhome">Welcome Lessee</label>
                 <ul>
                     <li>
+                        <a href="/container_leasing_app/lessee_home">home</a>
+                    </li>
+                    <li>
                         <a href="/container_leasing_app/lessee_editprofile">edit profile</a>
                     </li>
                     <li>
@@ -23,7 +26,7 @@
                 </ul>
             </nav>
             <h1>Leasing List</h1>
-            <table>
+            <table border="1">
                 <tr>
                     <th>Lessee Name</th>
                     <th>Lessor Name</th>
@@ -34,18 +37,18 @@
                     <th>Total Leasing Months</th>
                     <th>Lease Amount</th>
                 </tr>
-
+                {% for leasingdata in leasingdata %}
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{leasingdata.Lessee_Name}}</td>
+                    <td>{{leasingdata.Owner_Name}}</td>
+                    <td>{{leasingdata.Lease_Container_Type}}</td>
+                    <td>{{leasingdata.Lease_Container_Size}}</td>
+                    <td>{{leasingdata.Quantity}}</td>
+                    <td>{{leasingdata.Lease_Date}}</td>
+                    <td>{{leasingdata.Leasing_Months}}</td>
+                    <td>{{leasingdata.Lease_Amount}}</td>
                 </tr>
-                
+                {% endfor %}
             </table>
     </body>
 </html>
