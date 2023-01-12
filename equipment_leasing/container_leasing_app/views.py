@@ -156,7 +156,7 @@ def lessor_addcontainer(request):
             containerdata.Quantity = quantity
             containerdata.Container_Amount = containeramount
             containerdata.save()
-            return HttpResponse('Container details are added successfully')
+            return redirect('/container_leasing_app/lessor_addcontainer')
     return render(request, 'container_leasing_app/lessor_addcontainer.html')
 
 def lessor_updatecontainer(request):
