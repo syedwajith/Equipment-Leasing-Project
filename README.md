@@ -1,6 +1,6 @@
 # Equipment-Leasing-Project
 
-Screen shots
+ # Screen shots
 ![Screenshot (86)](https://user-images.githubusercontent.com/84230157/215339375-eb69e6ea-4076-4a8f-acc5-604745293fda.png)
 ![Screenshot (87)](https://user-images.githubusercontent.com/84230157/215339376-2046bd91-3ff7-46a2-986c-6bb2408afcd4.png)
 ![Screenshot (88)](https://user-images.githubusercontent.com/84230157/215339377-efbeb5a4-7ef3-4c2f-afc8-a37267ce1273.png)
